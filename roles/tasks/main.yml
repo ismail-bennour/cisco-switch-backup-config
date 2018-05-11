@@ -1,0 +1,14 @@
+---
+- name: ssh version 2
+  ios_config:
+       authorize: yes
+       lines:
+         - ip ssh version 2
+- name: sh run | inc ssh
+  ios_command:
+    authorize: yes
+    commands:
+      -sh run | inc ssh
+  register: after_v2
+- debug: var=after_v2.stdout_lines
+   
